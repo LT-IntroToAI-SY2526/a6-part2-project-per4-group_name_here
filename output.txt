@@ -1,0 +1,128 @@
+======================================================================
+LOADING AND EXPLORING DATA
+======================================================================
+
+Dataset Shape: 20640 rows, 9 columns
+
+Features: ['MedInc', 'HouseAge', 'AveRooms', 'AveBedrms', 'Population', 'AveOccup', 'Latitude', 'Longitude']
+Target: MedHouseVal (Median House Value in $100,000s)
+
+--- First 5 Rows ---
+   MedInc  HouseAge  AveRooms  ...  Latitude  Longitude  MedHouseVal
+0  8.3252      41.0  6.984127  ...     37.88    -122.23        4.526
+1  8.3014      21.0  6.238137  ...     37.86    -122.22        3.585
+2  7.2574      52.0  8.288136  ...     37.85    -122.24        3.521
+3  5.6431      52.0  5.817352  ...     37.85    -122.25        3.413
+4  3.8462      52.0  6.281853  ...     37.85    -122.25        3.422
+
+[5 rows x 9 columns]
+
+--- Summary Statistics ---
+             MedInc      HouseAge  ...     Longitude   MedHouseVal
+count  20640.000000  20640.000000  ...  20640.000000  20640.000000
+mean       3.870671     28.639486  ...   -119.569704      2.068558
+std        1.899822     12.585558  ...      2.003532      1.153956
+min        0.499900      1.000000  ...   -124.350000      0.149990
+25%        2.563400     18.000000  ...   -121.800000      1.196000
+50%        3.534800     29.000000  ...   -118.490000      1.797000
+75%        4.743250     37.000000  ...   -118.010000      2.647250
+max       15.000100     52.000000  ...   -114.310000      5.000010
+
+[8 rows x 9 columns]
+
+--- Missing Values ---
+MedInc         0
+HouseAge       0
+AveRooms       0
+AveBedrms      0
+Population     0
+AveOccup       0
+Latitude       0
+Longitude      0
+MedHouseVal    0
+dtype: int64
+No missing values!
+
+======================================================================
+VISUALIZING RELATIONSHIPS
+======================================================================
+Saved scatter plots to 'feature_relationships.png'
+
+======================================================================
+PREPARING AND SPLITTING DATA
+======================================================================
+
+Total samples: 20640
+Training samples: 16512 (80%)
+Testing samples: 4128 (20%)
+
+======================================================================
+TRAINING MODEL
+======================================================================
+
+--- Model Equation ---
+MedHouseVal = -37.0233 + (0.4487 * MedInc) + (0.0097 * HouseAge) + (-0.1233 * AveRooms) + (0.7831 * AveBedrms) + (-0.0000 * Population) + (-0.0035 * AveOccup) + (-0.4198 * Latitude) + (-0.4337 * Longitude)
+
+--- Feature Importance (by coefficient magnitude) ---
+  AveBedrms    :     0.7831 (+)
+  MedInc       :     0.4487 (+)
+  Longitude    :    -0.4337 (-)
+  Latitude     :    -0.4198 (-)
+  AveRooms     :    -0.1233 (-)
+  HouseAge     :     0.0097 (+)
+  AveOccup     :    -0.0035 (-)
+  Population   :    -0.0000 (-)
+
+======================================================================
+EVALUATING MODEL
+======================================================================
+
+--- Model Performance ---
+R² Score: 0.5758
+  (Model explains 57.6% of the variance in house prices)
+
+RMSE: 0.7456
+  (Average prediction error: $74,558)
+
+--- Actual vs Predicted (first 10 test samples) ---
+    Actual  Predicted     Error
+0  0.47700   0.719123 -0.242123
+1  0.45800   1.764017 -1.306017
+2  5.00001   2.709659  2.290351
+3  2.18600   2.838926 -0.652926
+4  2.78000   2.604657  0.175343
+5  1.58700   2.011754 -0.424754
+6  1.98200   2.645500 -0.663500
+7  1.57500   2.168755 -0.593755
+8  3.40000   2.740746  0.659254
+9  4.46600   3.915615  0.550385
+
+Saved evaluation plots to 'model_evaluation.png'
+
+======================================================================
+EXAMPLE PREDICTION
+======================================================================
+
+--- Sample House Features ---
+  MedInc: 5.0
+  HouseAge: 25.0
+  AveRooms: 6.0
+  AveBedrms: 1.0
+  Population: 1500.0
+  AveOccup: 3.0
+  Latitude: 34.05
+  Longitude: -118.25
+
+--- Prediction ---
+Predicted Median House Value: 2.4848 ($100k)
+In dollars: $248,483
+
+======================================================================
+PROJECT COMPLETE!
+======================================================================
+
+Next steps:
+1. Analyze your results
+2. Try improving your model (add/remove features)
+3. Create your presentation
+4. Practice presenting with your group!
