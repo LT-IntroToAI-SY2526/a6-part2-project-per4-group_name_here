@@ -144,7 +144,7 @@ def train_model(X_train, y_train, feature_names):
     # Print the equation
     print("\n--- Model Equation ---")
     equation = f"MedHouseVal = {model.intercept_:.4f}"
-    for name, coef in zip[tuple[Any, NDArray[float64] | float64]](feature_names, model.coef_):
+    for name, coef in zip(feature_names, model.coef_):
         equation += f" + ({coef:.4f} * {name})"
     print(equation)
 
